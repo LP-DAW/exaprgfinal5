@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import modelo.Curso;
 import modelo.Examen;
 
-public class ModeloMysql implements Modelo {
+public class ModeloMysql implements IModelo {
 
    private final String BD = "exaprgfinal5";
    private final String USER = "alumno";
@@ -51,49 +51,17 @@ public class ModeloMysql implements Modelo {
       /* Rellenar: 1 puntos
        Graba el examen en la tabla
        */
-      int resultado;
-      String sql;
 
-      try {
-         conectar();
-         st = con.createStatement();
+       //TODO
 
-         String id = examen.getId();
-         String nombre = examen.getNombre();
-         String idcurso = examen.getCurso().getId();
 
-         sql = "insert into examen(id,nombre,idcurso) "
-                 + "values('" + id + "','" + nombre + "','" + idcurso + "')";
-         System.out.println(sql);
-         resultado = st.executeUpdate(sql);
-
-         desconectar();
-      } catch (SQLException ex) {
-         System.out.println("Error");
-      }
    }
 
    @Override
    public void createCurso(Curso curso) {
-      int resultado;
-      String sql;
+       //TODO
 
-      try {
-         conectar();
-         st = con.createStatement();
 
-         String id = curso.getId();
-         String nombre = curso.getNombre();
-
-         sql = "insert into curso(id,nombre) "
-                 + "values('" + id + "','" + nombre + "')";
-         System.out.println(sql);
-         resultado = st.executeUpdate(sql);
-
-         desconectar();
-      } catch (SQLException ex) {
-         System.out.println("Error");
-      }
    }
 
    @Override
@@ -102,68 +70,19 @@ public class ModeloMysql implements Modelo {
        Leer el examen de la tabla
        */
 
-      Examen examen = null;
-      Curso curso = null;
-      Boolean encontrado = false;
+       //TODO
 
-      try {
 
-         conectar();
-         st = con.createStatement();
-
-         String sql = "select id,nombre,idcurso from examen where id='" + id + "'";
-         System.out.println(sql);
-
-         rs = st.executeQuery(sql);
-
-         if (rs.next()) {
-
-            String nombre = rs.getString("nombre");
-            String idcurso = rs.getString("idcurso");
-
-            curso = new Curso(idcurso, "");
-
-            examen = new Examen(id, nombre, curso);
-            desconectar();
-         }
-
-      } catch (SQLException se) {
-         //Errores de JDBC
-         se.printStackTrace();
-      } catch (Exception e) {
-         //Errores de Class.forNameCliente
-         e.printStackTrace();
-      }
-      return examen;
+       return null;
    }
 
    @Override
    public Curso readCurso(String idcurso) {
-      Curso curso = null;
-      try {
 
-         conectar();
-         st = con.createStatement();
+       //TODO
 
-         //Ejecutamos la SELECT sobre la tabla alumnos
-         String sql = "select id,nombre from curso where id='" + idcurso + "'";
-         System.out.println(sql);
 
-         rs = st.executeQuery(sql);
-
-         if (rs.next()) {
-
-            String nombre;
-            nombre = rs.getString("nombre");
-            curso = new Curso(idcurso, nombre);
-
-            desconectar();
-         }
-      } catch (SQLException ex) {
-         Logger.getLogger(ModeloMysql.class.getName()).log(Level.SEVERE, null, ex);
-      }
-
-      return curso;
+       return null;
    }
 
    @Override
@@ -172,24 +91,9 @@ public class ModeloMysql implements Modelo {
       /* Rellenar: 1 puntos
        Borra las tablas
        */
-      try {
 
-         conectar();
-         st = con.createStatement();
+       //TODO
 
-         String sql = "delete from examen;";
-         System.out.println(sql);
-         st.executeUpdate(sql);
-
-         sql = "delete from curso;";
-         System.out.println(sql);
-         st.executeUpdate(sql);
-
-         desconectar();
-
-      } catch (SQLException ex) {
-         Logger.getLogger(ModeloMysql.class.getName()).log(Level.SEVERE, null, ex);
-      }
    }
 
 }

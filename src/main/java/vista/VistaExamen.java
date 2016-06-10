@@ -41,49 +41,7 @@ public class VistaExamen extends JFrame {
 
    private void initComponents() {
 
-      jl1 = new JLabel("Id Examen");
-      jl2 = new JLabel("Nombre examen");
-      jl3 = new JLabel("Id Curso");
-      jl4 = new JLabel("Nombre curso");
-
-      jp2 = new JPanel();
-      jp2.setLayout(new GridLayout(4, 0));
-      jp2.add(jl1);
-      jp2.add(jl2);
-      jp2.add(jl3);
-      jp2.add(jl4);
-
-      jtf1 = new JTextField(4);
-      jtf2 = new JTextField(25);
-      jtf3 = new JTextField(4);
-      jtf4 = new JTextField(25);
-      jtf4.setEnabled(false);
-
-      jp3 = new JPanel();
-      jp3.add(jtf1);
-      jp3.add(jtf2);
-      jp3.add(jtf3);
-      jp3.add(jtf4);
-      jp3.setLayout(new GridLayout(4, 0));
-
-      jp1 = new JPanel();
-      jp1.setLayout(new FlowLayout(0, 2, 2));
-      add(jp1);
-      jp1.add(jp2);
-      jp1.add(jp3);
-
-      jb1 = new JButton("Grabar");
-      jb2 = new JButton("Salir");
-      jp4 = new JPanel();
-      jp4.setLayout(new FlowLayout(0, 2, 2));
-      jp4.add(jb1);
-      jp4.add(jb2);
-
-      jp5 = new JPanel();
-      add(jp5);
-      jp5.setLayout(new GridLayout(2, 0));
-      jp5.add(jp1);
-      jp5.add(jp4);
+      //TODO
 
       setSize(500, 200); // Ancho, Alto
       setLocationRelativeTo(null);
@@ -92,29 +50,4 @@ public class VistaExamen extends JFrame {
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Cierra Aplicacion
 
    }
-
-   public JButton getjb1() {
-      return jb1;
-   }
-
-   public JButton getjb2() {
-      return jb2;
-   }
-
-   public JTextField getjtf1() {
-      return jtf1;
-   }
-
-   public JTextField getjtf2() {
-      return jtf2;
-   }
-
-   public JTextField getjtf3() {
-      return jtf3;
-   }
-
-   public JTextField getjtf4() {
-      return jtf4;
-   }
-
 }

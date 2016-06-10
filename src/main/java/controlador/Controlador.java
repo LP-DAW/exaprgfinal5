@@ -1,6 +1,6 @@
 package controlador;
 
-import datos.Modelo;
+import datos.IModelo;
 import datos.ModeloFichero;
 import datos.ModeloMysql;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ import vista.VistaExamen;
 
 class Controlador implements ActionListener {
 
-   Modelo modelo;
+   IModelo modelo;
    VistaExamen vista;
    Examen examen;
    Curso curso;
@@ -20,33 +20,14 @@ class Controlador implements ActionListener {
    final static String GRABAR = "GRABAR";
    final static String SALIR = "SALIR";
 
-   Controlador(Modelo modelo_, VistaExamen vista_) throws IOException {
+   Controlador(IModelo m, VistaExamen v) {
 
-      modelo = modelo_;
-      vista = vista_;
+      modelo = m;
+      vista = v;
 
-      vista = new VistaExamen();
-      vista.setVisible(true);
+      //TODO
 
-      fuentededatos();
 
-      modelo.inicializa();
-      inicializaModelo();
-
-      examen = ExamenInicial();
-      mostrarExamen(examen);
-      configuraBotones();
-
-   }
-
-   private Examen ExamenInicial() throws IOException {
-
-      examen = modelo.readExamen("e1");
-      String idcurso = examen.getCurso().getId();
-      curso = modelo.readCurso(idcurso);
-      examen.setCurso(curso);
-
-      return examen;
    }
 
    private void configuraBotones() {
@@ -56,11 +37,8 @@ class Controlador implements ActionListener {
        los eventos.
        */
 
-      vista.getjb1().setActionCommand(GRABAR);
-      vista.getjb2().setActionCommand(SALIR);
+       //TODO
 
-      vista.getjb1().addActionListener(this);
-      vista.getjb2().addActionListener(this);
    }
 
    @Override
@@ -70,16 +48,8 @@ class Controlador implements ActionListener {
        hacer grabar()
        */
 
-      String comando = e.getActionCommand();
+       //TODO
 
-      switch (comando) {
-         case SALIR:
-            salir();
-            break;
-         case GRABAR:
-            grabar();
-            break;
-      }
 
    }
 
@@ -103,33 +73,25 @@ class Controlador implements ActionListener {
        Muestra en  el formulario VistaExamen el examen
        */
 
-      vista.getjtf1().setText(examen.getId());
-      vista.getjtf2().setText(examen.getNombre());
-      vista.getjtf3().setText(examen.getCurso().getId());
-      vista.getjtf4().setText(examen.getCurso().getNombre());
+      //TODO
+
    }
 
    private Examen getExamen() {
 
-      Examen examen = new Examen();
-      Curso curso = new Curso();
-
-      String id = vista.getjtf1().getText();
-      String nombre = vista.getjtf2().getText();
-      String idcurso = vista.getjtf3().getText();
-
-      curso = modelo.readCurso(idcurso);
-      examen = new Examen(id, nombre, curso);
-      return examen;
+       //TODO
+       return null;
    }
 
-   private void mostrarCurso(Examen examen) {
-      vista.getjtf4().setText(examen.getCurso().getNombre());
+   private void mostrarCurso(Examen examen)
+   {
+       //TODO
+
    }
 
    private void inicializaModelo() {
 
-      /* Rellenar. 0.5puntos
+       /* Rellenar. 0.5puntos
        Crear los objetos examen y curso que se indican y grabarlos en
        la fuente de datos.
 
@@ -142,15 +104,7 @@ class Controlador implements ActionListener {
        c2;Curso 2
 
        */
-      Curso curso1 = new Curso("c1", "Curso 1");
-      Examen examen1 = new Examen("e1", "Examen 1", curso1);
-      modelo.createCurso(curso1);
-      modelo.createExamen(examen1);
-
-      Curso curso2 = new Curso("c2", "Curso 2");
-      Examen examen2 = new Examen("e2", "Examen 2", curso2);
-      modelo.createCurso(curso2);
-      modelo.createExamen(examen2);
+       //TODO
 
    }
 
@@ -160,7 +114,7 @@ class Controlador implements ActionListener {
        utilizando el modelo
        */
 
-      modelo = new ModeloMysql();
+       //TODO
    }
 
    private void destinodedatos() {
@@ -169,7 +123,7 @@ class Controlador implements ActionListener {
        sea fichero o mysql utilizando el modelo
        */
 
-      modelo = new ModeloFichero();
+      //TODO
    }
 
 }

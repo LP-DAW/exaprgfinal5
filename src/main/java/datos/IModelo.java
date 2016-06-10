@@ -3,7 +3,7 @@ package datos;
 import modelo.Curso;
 import modelo.Examen;
 
-public interface Modelo {
+public interface IModelo {
 
    // Graba en objeto examen en un fichero/mysql
    public void createExamen(Examen examen);
