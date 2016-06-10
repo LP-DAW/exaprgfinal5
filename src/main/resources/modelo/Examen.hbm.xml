@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13-may-2015 9:59:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Examen" table="examen" catalog="exaprgfinal5" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="4" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="curso" class="modelo.Curso" fetch="select">
+            <column name="idcurso" length="4" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="25" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <property name="enunciado" type="string">
+            <column name="enunciado" length="65535" not-null="true" />
+        </property>
+        <property name="bd" type="string">
+            <column name="bd" length="15" not-null="true" />
+        </property>
+        <property name="sql" type="string">
+            <column name="sql" length="25" not-null="true" />
+        </property>
+        <property name="cvs" type="string">
+            <column name="cvs" length="50" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
